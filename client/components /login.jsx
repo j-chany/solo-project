@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
 import  { useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
 
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -16,7 +16,8 @@ function Login () {
   const [password, setPassWord] = useState('')
   const [loginStatus, setLoginStatus] = useState(false)
   
-  const loginClick = (e) => {
+  // when user click sign in button
+  const handleSignin = (e) => {
     e.preventDefault();
     // setting username and password to state when user log in
     const data = new FormData(e.currentTarget)
@@ -46,12 +47,20 @@ function Login () {
       })
       .catch((e) => console.log(e))
   }
+
+  // if user click create account
+  const handleCreateAcc = (e) => {
+    e.preventDefault();
+
+    const path = '/signup';
+    useNavigate(path); 
+  }
   
 
   return (
  
  <div className='loginContainer'>
-  <Box component="form" onSubmit={loginClick} noValidate sx={{ mt: 1 }}> 
+  <Box component="form" onSubmit={handleSignin} noValidate sx={{ mt: 1 }}> 
   
   <div id='Loginheader'>Welcome to Bread Tracker </div>
   <TextField 
@@ -80,7 +89,7 @@ function Login () {
   onChange={(newValue) => setPassWord(newValue.target.value)}
   /><br></br>
   <Button type="submit" variant="text">Login</Button>
-  <Button type="button" variant="text"> Create Account</Button>
+  <Button type="button" onClick={handleCreateAcc} variant="text"> Create Account</Button>
   </Box>
   </div>
   )

@@ -9,8 +9,8 @@ function App() {
   return  (
     <Routes>
       <Route path='/' element= {<Login /> } />
-      <Route path='/login' element= {<h1> hello </h1>} />
-
+      <Route path='/dashboard' element= {<h1> dashBoard </h1>} />
+      <Route path='/signup' element={<h1>Sign Up</h1>}/>
     </Routes>
   )
 }
