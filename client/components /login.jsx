@@ -7,9 +7,10 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import logo from '../assets /logo.png'
 
-
-
+import SignUp from './signup.jsx';
+   
 function Login () {
 
   const [username, setUsername] = useState('')
@@ -20,15 +21,15 @@ function Login () {
   const handleSignin = (e) => {
     e.preventDefault();
     // setting username and password to state when user log in
-    const data = new FormData(e.currentTarget)
-    const inputUsername = data.get('username');
-    const inputPassword = data.get('password');
-    console.log('LOG ION INFO:', {
-      username: username,
-      password: password
-    });
+    // const data = new FormData(e.currentTarget)
+    // const inputUsername = data.get('username');
+    // const inputPassword = data.get('password');
+    // console.log('LOG ION INFO:', {
+    //   username: username,
+    //   password: password
+    // });
     const body = { username: username, password: password }
-    console.log(body)
+    // console.log(body)
     // submit post request to sign in
     fetch('http://localhost:8081//login',{
 
@@ -36,33 +37,40 @@ function Login () {
       headers: {
         // 'Accept': 'object',
           'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
         },
       body: JSON.stringify(body)
     })
-      .then((data) => {
-      setLoginStatus(true);
-      const {url} = data
-      console.log(url)      // if it goes thru then we redirect to dashBoard Component
+      .then((res) => {
+        if (res.status === 200) {
+          console.log(res.body)
+          setLoginStatus(true);
+          const {url} = res
+          navigateToDashBoard();
+        }
+
       })
       .catch((e) => console.log(e))
   }
 
   // if user click create account
-  const handleCreateAcc = (e) => {
-    e.preventDefault();
-
-    const path = '/signup';
-    useNavigate(path); 
-  }
+  const navigate = useNavigate(); 
   
+  const navigateToSignUp = () => {
+    navigate('/signup')
+  }
+
+  const navigateToDashBoard= () => {
+    navigate('/dashboard')
+  }
+
 
   return (
  
  <div className='loginContainer'>
   <Box component="form" onSubmit={handleSignin} noValidate sx={{ mt: 1 }}> 
   
-  <div id='Loginheader'>Welcome to Bread Tracker </div>
+  <div id='Loginheader'> </div>
+  <img src={logo} alt="Logo"/>
   <TextField 
   margin='normal'
   required 
@@ -89,8 +97,14 @@ function Login () {
   onChange={(newValue) => setPassWord(newValue.target.value)}
   /><br></br>
   <Button type="submit" variant="text">Login</Button>
-  <Button type="button" onClick={handleCreateAcc} variant="text"> Create Account</Button>
+  <Button type="button" onClick={navigateToSignUp} variant="text"> Create Account</Button>
+  <p>
+    <a href="/" target="_blank">Privacy Policy   </a> 
+    | 
+    <a href="/" target="_blank">   Contact Us</a>
+  </p>
   </Box>
+
   </div>
   )
 }

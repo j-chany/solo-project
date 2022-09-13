@@ -10,11 +10,12 @@ html,body
 }
 body {
 
-  background-image: url('../assets /background-login.jpeg');
+  background-image: url('../assets /background-login.webp');
   background-size: cover;                      /* <------ */
   background-repeat: no-repeat;
   background-position: center center; 
 }
+
 
 .loginContainer{
   display: flex;
@@ -25,7 +26,7 @@ body {
   margin-bottom: 10px;
 }
 .loginContainer form {
-  margin-top: 15%;
+  margin-top: 25%;
   width:300px;
   text-align: center;
 }
@@ -34,6 +35,16 @@ body {
   font-weight: bolder;
   font-size: 20px;
 }
+
+.loginContainer form p a {
+  font-size: 12px;
+
+}
+
+.SignUp {
+  background-color: white;
+}
+
 
 
 

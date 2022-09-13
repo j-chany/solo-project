@@ -8,7 +8,8 @@ const router = express.Router();
 
 router.post('/', userController.verifyUser, (req, res) => {
   // redirect to dashBoard
-  res.redirect('/dashboard')
+  // res.json(res.locals.user)
+  res.json('HI')
 });
 
 module.exports = router;

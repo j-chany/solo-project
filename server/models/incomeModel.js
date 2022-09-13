@@ -17,10 +17,11 @@ mongoose
 
 const source = new Schema({
   name: { type: String },
-  categories: { type: String, default: 'Salary' },
+  categories: { type: String },
   amount: { type: Number },
   date: { type: Date, default: Date.now },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+  budget: { type: Number },
 });
 
 module.exports = mongoose.model('Source', source);

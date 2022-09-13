@@ -35,15 +35,17 @@ res.sendFile(path.join(__dirname, '../client/html/index.html'));
 app.use('/login', loginRouter);
 
 // sign up page
-app.get('/signup',(req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/html/signup.html'));
-});
+// app.get('/signup',(req, res) => {
+//   res.sendFile(path.resolve(__dirname, '../client/html/signup.html'));
+// });
 // rest of the request of signing up will be handled with router
 app.use('/signup', signupRouter);
 
-app.get('/dashboard',(req, res) => {
-  res.sendFile(path.resolve(__dirname, '../client/html/dashboard.html'));
-});
+// app.get('/dashboard',(req, res) => {
+//   res.sendFile(path.join(__dirname, '../client/html/index.html'));
+
+// //   res.sendFile(path.resolve(__dirname, '../client/html/dashboard.html'));
+// });
 // rest of the request of signing up will be handled with router
 app.use('/dashboard', dashboardRouter);
 
