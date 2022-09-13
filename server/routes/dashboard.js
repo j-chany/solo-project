@@ -6,7 +6,7 @@ const path = require('path');
 const router = express.Router();
 
 // Create data current data: expense logged
-router.get('/', dashController.getAllData, (req, res) => {
+router.get('/expense', dashController.getAllData, (req, res) => {
   //  get all data
   res.status(200).json(res.locals.userData);
 });

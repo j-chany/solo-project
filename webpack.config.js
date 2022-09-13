@@ -13,12 +13,9 @@ module.exports = {
   // headers: { 'Access-Control-Allow-Origin': '*' },
   devServer: {
   proxy: {
-    '*': {
       target: 'http://localhost:8080/',
-      secure: false,
     },
   },
-},
   plugins: [
     new HTMLWebpackPlugin({
       template: './client/html/index.html',

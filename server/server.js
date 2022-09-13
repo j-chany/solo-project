@@ -11,6 +11,8 @@ const app = express();
 
 const PORT = 8080;
 
+const cors = require('cors')
+app.use(cors())
 /**
  * handle parsing request body
  */
