@@ -6,15 +6,16 @@ userController.createUser = (req, res, next) => {
   User.create({
     username: req.body.username,
     password: req.body.password,
+    name: req.body.name,
   })
     .then((data) => {
       console.log(data._id);
-      res.locals.userId = data._id;
-      next();
+      res.locals.user = data;
+      return next();
     })
     .catch((e) => {
       console.log(req.body);
-      next('ERROR in userController.createrUser: ' + JSON.stringify(e));
+      return next('ERROR in userController.createrUser: ' + JSON.stringify(e));
     });
 };
 // verify user login info
@@ -25,11 +26,10 @@ userController.verifyUser = (req, res, next) => {
   })
     .then((data) => {
       if (data) {
-        console.log(data._id)
+        console.log(data._id);
         res.locals.user = data;
         return next();
-      }
-      else return (next('ERROR: username or password incorrect'))
+      } else return next('ERROR: username or password incorrect');
     })
     .catch((e) => {
       console.log(req.body);

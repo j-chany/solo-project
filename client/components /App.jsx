@@ -9,12 +9,13 @@ import  { useState, useEffect } from 'react';
 function App() {
   const [user, setUser] = useState('')
   const [name, setName] = useState('')
+  
   return  (
     <div className="App"> 
     <Routes>
       <Route path='/' element= {<Login setUser={setUser} setName={setName}/> } />
       <Route path='/dashboard' element= {<DashBoard user={user} name={name} />} />
-      <Route path='/signup' element={<SignUp />}/>
+      <Route path='/signup' element={<SignUp setUser={setUser} setName={setName} name={name}/>}/>
     </Routes>
     </div>
   )

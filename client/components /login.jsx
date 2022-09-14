@@ -31,7 +31,7 @@ function Login ({setUser, setName}) {
     //   password: password
     // });
     const body = { username: username, password: password }
-    console.log('hi')
+
     // submit post request to sign in
     fetch('http://localhost:3000/login',{
 

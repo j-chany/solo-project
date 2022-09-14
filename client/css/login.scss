@@ -73,4 +73,32 @@ body .dashboard {
   background-position: center center; 
 }
 
+.signUpContainer{
+  display: flex;
+  justify-content: center;
+  
+}
+.signUpContainer form {
+  margin-top: 22%;
+  text-align: center;
+}
 
+.signUpContainer form img {
+  width:120px; 
+}
+.signUpContainer form input {
+  width:350px; 
+}
+
+.NewExpenseContainer {
+  background-color: darkgrey;
+  width:15%;
+  line-height: 1.5em;
+  border: 4mm ridge rgba(243, 255, 18, 0.6);;
+}
+
+.NewExpenseContainer form  {
+display: flex;
+flex-direction: column;
+
+}
