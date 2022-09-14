@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import  { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { createContext } from 'react';
 
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -10,13 +11,14 @@ import Button from '@mui/material/Button';
 import logo from '../assets /logo.png'
 
 import SignUp from './signup.jsx';
-   
-function Login () {
+
+const UserContext = createContext(); 
+
+function Login ({setUser, setName}) {
 
   const [username, setUsername] = useState('')
   const [password, setPassWord] = useState('')
   const [loginStatus, setLoginStatus] = useState(false)
-  
   // when user click sign in button
   const handleSignin = (e) => {
     e.preventDefault();
@@ -29,9 +31,9 @@ function Login () {
     //   password: password
     // });
     const body = { username: username, password: password }
-    // console.log(body)
+    console.log('hi')
     // submit post request to sign in
-    fetch('http://localhost:8080/login',{
+    fetch('http://localhost:3000/login',{
 
       method: 'POST',
       headers: {
@@ -40,14 +42,13 @@ function Login () {
         },
       body: JSON.stringify(body)
     })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res.body)
-          setLoginStatus(true);
-          const {url} = res
-          navigateToDashBoard();
-        }
-
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data._id)
+      setLoginStatus(true);
+      setUser(data._id);
+      setName(data.name); 
+      navigateToDashBoard();
       })
       .catch((e) => console.log(e))
   }

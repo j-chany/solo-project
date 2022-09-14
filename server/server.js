@@ -9,7 +9,8 @@ const dashboardRouter = require('./routes/dashboard');
 
 const app = express();
 
-const PORT = 8080;
+// define port 
+const PORT = 3000;
 
 const cors = require('cors')
 app.use(cors())

@@ -12,8 +12,10 @@ module.exports = {
   },
   // headers: { 'Access-Control-Allow-Origin': '*' },
   devServer: {
-  proxy: {
-      target: 'http://localhost:8080/',
+    proxy: {
+      '/': {
+        target: 'http://localhost:3000/',
+      },
     },
   },
   plugins: [
@@ -65,5 +67,4 @@ module.exports = {
       },
     ],
   },
-}
-
+};

@@ -25,6 +25,7 @@ userController.verifyUser = (req, res, next) => {
   })
     .then((data) => {
       if (data) {
+        console.log(data._id)
         res.locals.user = data;
         return next();
       }
