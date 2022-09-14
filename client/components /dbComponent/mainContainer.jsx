@@ -10,9 +10,14 @@ function MainContainer ({user, name}) {
 
   return (
     <div className='mainContainer'>
-      <h1>Welcome to Bread Tracker {name} </h1>
+      <div className='expenseHeader'>
+      <div>Bread Tracker 1.0</div>
+      <div>Welcome to Bread Tracker {name} </div>
+      </div>
+      <div className='expenseContent'> 
       <NewExpenseCreator user={user} />
       <ExpenseLog user={user} />
+      </div>
     </div>
   )
 }

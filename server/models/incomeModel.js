@@ -20,8 +20,7 @@ const source = new Schema({
   categories: { type: String },
   amount: { type: Number },
   date: { type: Date, default: Date.now },
-  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  budget: { type: Number },
+  user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 });
 
 module.exports = mongoose.model('Source', source);

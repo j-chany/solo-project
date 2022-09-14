@@ -1,4 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap%27');
 
 html,body
 {
@@ -9,18 +10,7 @@ html,body
     overflow-x: hidden; 
 }
 
-body{
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
-  overflow-x: hidden; 
-  background-image: url('../assets /background-login.webp');
-  background-size: cover;                      /* <------ */
-  background-repeat: no-repeat;
-  background-position: center center; 
-}
-// .App {
+// body{
 //   width: 100%;
 //   height: 100%;
 //   margin: 0px;
@@ -31,6 +21,20 @@ body{
 //   background-repeat: no-repeat;
 //   background-position: center center; 
 // }
+.App {
+  width: 100vw;
+  height: 100vh;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden; 
+  background-image: url('../assets /background-login.webp');
+  // background-image: url('../assets /dashb.webp');
+
+  background-size: auto;
+  /* <------ */
+  background-repeat: no-repeat;
+  background-position: center center; 
+}
 
 
 .loginContainer{
@@ -61,16 +65,28 @@ body{
   background-color: white;
 }
 
-body .dashboard {
-  width: 100%;
-  height: 100%;
+.mainContainer {
+  width: 100vw;
+  height: 100vh;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden; 
-  background-image: url('../assets /background-login.jpeg');
+  background-image: url('../assets /dashb.webp');
   background-size: cover;                      /* <------ */
-  background-repeat: no-repeat;
+  
   background-position: center center; 
+}
+
+.expenseHeader {
+  text-shadow: 3px 2px #dec6dd;
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  font-size: 30px;
+  color: rgb(0, 0, 0);
+  margin-bottom: 15px; 
+}
+.expenseContent {
+  display: flex;
 }
 
 .signUpContainer{
@@ -91,14 +107,28 @@ body .dashboard {
 }
 
 .NewExpenseContainer {
-  background-color: darkgrey;
-  width:15%;
-  line-height: 1.5em;
-  border: 4mm ridge rgba(243, 255, 18, 0.6);;
+  margin-left: 10px;
+  background-color: rgb(178,216,241,0.6);
+  width:18%;
+  height:50vh;
+   line-height: 1.5em;
+  border: 1mm solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
 }
 
 .NewExpenseContainer form  {
+font-family: 'Poppins', sans-serif;
+text-align: center;
 display: flex;
 flex-direction: column;
-
+color: rgb(4, 1, 13)
+}
+.NewExpenseContainer h4  {
+  text-shadow: 3px 2px #dec6dd;
+  color: rgb(4, 1, 13)
+  }
+  
+.indvExpense {
+  display: flex;
+  border: 1px solid ;
 }

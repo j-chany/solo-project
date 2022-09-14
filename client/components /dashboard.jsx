@@ -7,13 +7,11 @@ import MainContainer from './dbComponent/mainContainer.jsx'
 function DashBoard({user,name}) {
 // get state 
 useEffect(()=> {
-  console.log(user)
-  console.log(name)
+  
 })
 
   return  (
   <div>
-      <h1>Bread Tracker</h1>
       <MainContainer user={user} name={name} />
       
   </div>

@@ -12,7 +12,7 @@ router.get('/expense', dashController.getAllData, (req, res) => {
 });
 
 // adding Income
-router.post('/', dashController.createExpense, (req, res) => {
+router.post('/expense', dashController.createExpense, (req, res) => {
   // grab the current user
   // update the income to db
   res.status(200).json(res.locals.newEntry);
