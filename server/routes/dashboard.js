@@ -19,7 +19,7 @@ router.post('/expense', dashController.createExpense, (req, res) => {
 });
 
 // deleting expense
-router.delete('/', dashController.deleteExpense, (req, res) => {
+router.delete('/expense', dashController.deleteExpense, (req, res) => {
   res.status(200).json('deleted');
 });
 

@@ -28,9 +28,9 @@ html,body
   padding: 0px;
   overflow-x: hidden; 
   background-image: url('../assets /background-login.webp');
-  // background-image: url('../assets /dashb.webp');
+  background-size: cover;                      /* <------ */
 
-  background-size: auto;
+  // background-image: url('../assets /dashb.webp');
   /* <------ */
   background-repeat: no-repeat;
   background-position: center center; 
@@ -130,5 +130,25 @@ color: rgb(4, 1, 13)
   
 .indvExpense {
   display: flex;
-  border: 1px solid ;
+  border: 1mm solid rgba(255, 255, 255, 0.6);
+  margin-left: 10px;
+
+}
+
+.indvExpense span {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.indvExpense button {
+  background: none;
+  border: none; 
+ 
+  cursor: pointer;
+}
+ 
+.indvExpense button:hover {
+  border : 1mm solid rgba(255, 2, 2, 0.6);
+  border-radius: 20px;
 }

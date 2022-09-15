@@ -34,7 +34,7 @@ function NewExpenseCreator({user, name}) {
       date: date,
       user: user,
     }
-    console.log(JSON.stringify(body))
+    console.log(date)
 
     // fetch post request
     fetch('http://localhost:3000/dashboard/expense',{

@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const dashboardRouter = require('./routes/dashboard');
-
+const budgetRouter = require('./routes/budget')
 const app = express();
 
 // define port 
@@ -51,6 +51,8 @@ app.use('/signup', signupRouter);
 // });
 // rest of the request of signing up will be handled with router
 app.use('/dashboard', dashboardRouter);
+
+app.use('/budget', budgetRouter);
 
 
 

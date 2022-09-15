@@ -11,7 +11,6 @@ dashController.getAllData = (req, res, next) => {
   })
     .then((data) => {
       res.locals.userData = data;
-      console.log('fetching')
       next();
     })
     .catch(() => next('ERROR IN dashController: Get ALL DATA'));
@@ -37,8 +36,7 @@ dashController.createExpense = (req, res, next) => {
 // delete expense
 dashController.deleteExpense = (req, res, next) => {
   Source.findOneAndDelete({
-    user: req.body.userID,
-    _id: req.body._id,
+    _id: req.body.id,
   })
     .then((data) => {
       if (data) return next();

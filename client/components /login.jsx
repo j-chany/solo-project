@@ -1,8 +1,6 @@
-import React, { Component } from 'react';
-import { render } from 'react-dom';
-import  { useState, useEffect } from 'react';
+import React, {useState}  from 'react';
 import { useNavigate } from 'react-router-dom';
-import { createContext } from 'react';
+
 
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -12,7 +10,6 @@ import logo from '../assets /logo.png'
 
 import SignUp from './signup.jsx';
 
-const UserContext = createContext(); 
 
 function Login ({setUser, setName}) {
 
@@ -67,7 +64,7 @@ function Login ({setUser, setName}) {
 
   return (
  
- <div className='loginContainer'>
+  <div className='loginContainer'>
   <Box component="form" onSubmit={handleSignin} noValidate sx={{ mt: 1 }}> 
   
   <div id='Loginheader'> </div>
