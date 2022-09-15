@@ -135,8 +135,9 @@ color: rgb(4, 1, 13)
 .indvExpense {
   display: flex;
   // text-shadow: 1px 1px #ff8d8d;
-
-  
+  border: 1mm solid black;
+  border-radius: 15px;
+  margin-top: 10px;
   margin-left: 10px;
 
 }
@@ -145,6 +146,8 @@ color: rgb(4, 1, 13)
   font-family: 'Poppins', sans-serif;
   font-weight: bolder;
   font-size: 22px;
+  margin-left: 10px; 
+
 }
 
 .indvExpense button {
@@ -159,16 +162,26 @@ color: rgb(4, 1, 13)
   border-radius: 20px;
 }
 
+.rightContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.middleContent{
+  margin-right: 200px;;
+}
 .budgetContainer {
+  margin-bottom: 75px;
   display: flex; 
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: 'Poppins', sans-serif;
-  position: absolute;
+  // position: absolute;
   left: 75%;
   border: none;
-  width:20%;
+  width:80%;
   height:25vh;
   padding: 15px;
   border: 1mm solid rgba(255, 255, 255, 0.6);
@@ -181,5 +194,38 @@ color: rgb(4, 1, 13)
 
 .budgetContainer span {
   font-size: 20px;
+  color: rgba(0, 0, 0);
+}
+
+
+// .expenseContent {
+//   display: flex;
+//   flex-direction: column;
+// }
+
+.currencyConverter {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin: none;
+  padding: none;
+  justify-content: 'center';
+  margin-bottom: 50px;
+  border: 1mm solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 5px 3px grey; 
+  width:80%;
+  height:35vh;
+  padding: 10px;
+}
+
+// .currencyConverter input {
+//   width:60px; 
+// }
+
+
+.currencyConverter span {
+  font-size: 16px;
   color: rgba(0, 0, 0);
 }

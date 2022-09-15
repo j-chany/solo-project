@@ -19,14 +19,7 @@ function Login ({setUser, setName}) {
   // when user click sign in button
   const handleSignin = (e) => {
     e.preventDefault();
-    // setting username and password to state when user log in
-    // const data = new FormData(e.currentTarget)
-    // const inputUsername = data.get('username');
-    // const inputPassword = data.get('password');
-    // console.log('LOG ION INFO:', {
-    //   username: username,
-    //   password: password
-    // });
+
     const body = { username: username, password: password }
 
     // submit post request to sign in

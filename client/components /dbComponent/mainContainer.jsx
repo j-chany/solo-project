@@ -10,6 +10,7 @@ import Budget from './budget.jsx';
 function MainContainer ({user, name}) {
   // set state here so budget also has access to data to calculate how much left to spend 
   const [allData, setAllData] = useState('')
+  const [budget, setBudget] = useState(0);
   const [doneGrabbing, setDoneGrabbing] = useState(false)
   return (
     <div className='mainContainer'>
@@ -19,8 +20,8 @@ function MainContainer ({user, name}) {
       </div>
       <div className='expenseContent'> 
       <NewExpenseCreator user={user} />
-      <ExpenseLog user={user} setDoneGrabbing={setDoneGrabbing} allData={allData} setAllData={setAllData} />
-      <Budget allData={allData} user={user} doneGrabbing={doneGrabbing}/>
+      <ExpenseLog user={user} budget={budget} doneGrabbing={doneGrabbing}setDoneGrabbing={setDoneGrabbing} allData={allData} setAllData={setAllData} />
+      <Budget allData={allData} user={user} doneGrabbing={doneGrabbing} budget={budget} setBudget={setBudget}/>
       </div>
     </div>
   )

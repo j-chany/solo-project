@@ -41,8 +41,8 @@ function Expense({user,name,amount,categories,Expid,date}) {
 
   return  (
       <div className='indvExpense'>
-        <span>{name}</span><br></br>
-        <span>Amount: ${amount}</span><br></br>
+        <span>{name}:</span><br></br>
+        <span> ${amount}</span><br></br>
         <span>Categories: {categories}</span><br></br>
         <span>Date: {newDate}</span><br></br>
 

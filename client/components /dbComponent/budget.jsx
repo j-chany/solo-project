@@ -5,17 +5,18 @@ import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-function Budget ({allData, doneGrabbing, user}) {
-  const [budget, setBudget] = useState(0)
-
+function Budget ({allData, doneGrabbing, user, setBudget, budget}) {
+  const [fromCurr, setfromCurr] =useState('');
+  const [toCurr, setToCurr] = useState(''); 
+  const [currAmount, setAmount] = useState(''); 
 // useeffect to grab current budget, if doesnt exisit then use the original 0
   useEffect(() => {
-    if (budget !== 0){
+    
     fetch(`http://localhost:3000/budget/?user=${user}`)
       .then(response => response.json())
       .then((data) => setBudget(data))
       .catch((e) => console.log('Error is', e))
-  }
+  
   })
   // handle submit
   const amount = (data) => {
@@ -67,15 +68,85 @@ function Budget ({allData, doneGrabbing, user}) {
     }
     }
 
-  return (
+    function handleConvert (e) {
+      e.preventDefault();
 
+      const options = {
+        method: 'GET',
+        headers: {
+          'X-RapidAPI-Key': '6410d20a69msh62b961c027a9feap1ba2eajsnc81a1014ddff',
+          'X-RapidAPI-Host': 'currency-converter-by-api-ninjas.p.rapidapi.com'
+        }
+      };
+      
+      fetch(`https://currency-converter-by-api-ninjas.p.rapidapi.com/v1/convertcurrency?have=${fromCurr}&want=${toCurr}&amount=${currAmount}`, options)
+        .then(response => response.json())
+        .then(response => {
+          console.log(response.new_amount);
+          window.alert(`$${currAmount} ${fromCurr} is $${response.new_amount} ${toCurr}`)
+        
+        })
+        .catch(err => console.error(err));
+
+
+
+    }
+
+  return (
+    <div className='rightContainer'>
     <div className='budgetContainer'>
      
       <span>Budget: ${budget}</span>
       <span> Total Spending: ${totalAmount}  </span>  <br></br>  
       <span> Total Remaining: ${budget-totalAmount}   </span>  <br></br>  
 
-      <Button onClick={handleClick} type="text" variant="contained">Update here!</Button>
+      <Button onClick={handleClick} type="text" variant="contained">Update Budget</Button>
+    </div>
+
+
+
+    <div className='currencyConverter'>
+    {/* converter */}
+    <span>Try Our Currency Converter </span>
+    <Button  onClick={handleConvert} type="text" variant="text">Convert </Button>
+    
+    <TextField 
+      margin='normal'
+      required 
+      name='Convert From' 
+      type='Convert From' 
+      id="Convert From" 
+      label="Convert From:" 
+      variant="outlined" 
+      
+      autoComplete="Convert From" 
+      autoFocus
+      onChange={(newValue) => setfromCurr(newValue.target.value)}
+    /> 
+
+  <TextField 
+      margin='normal' 
+      required name='Convert To' 
+      type='Convert To' 
+      id="Convert To" 
+      label="Convert To:" 
+      variant="outlined" 
+      autoComplete="Convert To"
+      onChange={(newValue) => setToCurr(newValue.target.value)}
+  />
+    <TextField 
+      margin='normal' 
+      required name='Amount' 
+      type='Amount' 
+      id="Amount" 
+      label="Amount:" 
+      variant="outlined" 
+      autoComplete="Amount"
+      onChange={(newValue) => setAmount(newValue.target.value)}
+  />
+  
+
+    </div>
     </div>
 
   )

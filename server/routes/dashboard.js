@@ -28,4 +28,8 @@ router.delete('/expense', dashController.deleteExpense, (req, res) => {
   res.status(200).json('deleted');
 });
 
+router.delete('/expense/clearall',dashController.deleteAllExpense, (req, res) => {
+  res.status(200).json('deleted');
+})
+
 module.exports = router;

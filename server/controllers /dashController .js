@@ -46,4 +46,16 @@ dashController.deleteExpense = (req, res, next) => {
     .catch(() => next('ERROR IN dashController: delete expense'));
 };
 
+dashController.deleteAllExpense = (req, res, next) => {
+  Source.deleteMany({
+    user: req.body.user
+  })
+  .then((data) => {
+    if (data) return next();
+
+    res.status(400).json('No Expense found');
+  })
+  .catch(() => next('ERROR IN dashController: delete Allexpense'));
+}
+
 module.exports = dashController;
