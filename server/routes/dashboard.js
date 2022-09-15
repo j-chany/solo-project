@@ -5,6 +5,11 @@ const path = require('path');
 
 const router = express.Router();
 
+router.get('/', (req, res) => {
+  //  get all data
+  res.redirect('/')
+});
+
 // Create data current data: expense logged
 router.get('/expense', dashController.getAllData, (req, res) => {
   //  get all data

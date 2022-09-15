@@ -33,9 +33,11 @@ budgetController.getBudget = (req, res, next) => {
 budgetController.updateBudget = (req, res, next) => {
   const filter = { user: req.body.user };
   const update = { budget: req.body.budget };
+  console.log(req.body.budget)
   Budget.findOneAndUpdate(filter, update, { useFindAndModify: false }, (err, data) => {
       if (data) {
         res.locals.budget = data.budget;
+        
         return next(); 
       }
       else next('ERROR, updated unsuccessful')

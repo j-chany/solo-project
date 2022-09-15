@@ -41,11 +41,14 @@ function Login ({setUser, setName}) {
     })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data._id)
+      // only proceed if response has name(right pw)
+      if (data.hasOwnProperty('username')) {
       setLoginStatus(true);
       setUser(data._id);
       setName(data.name); 
       navigateToDashBoard();
+      }
+      else {window.alert('Incorrect username or password! Try again. ')}
       })
       .catch((e) => console.log(e))
   }

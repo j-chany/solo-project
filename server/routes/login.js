@@ -6,6 +6,7 @@ const router = express.Router();
 
 // verify user
 
+
 router.post('/', userController.verifyUser, (req, res) => {
   // redirect to dashBoard
   // res.json(res.locals.user)

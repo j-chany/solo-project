@@ -112,7 +112,7 @@ function NewExpenseCreator({user, name}) {
           onChange={(newValue) => setDate(newValue.target.value)}
         /> 
         <br></br>
-        <Button variant="text" type="submit">Create Expense"</Button>
+        <Button variant="contained" type="submit">Create Expense</Button>
       </Box>
     </div>
     )

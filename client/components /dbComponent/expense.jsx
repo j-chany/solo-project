@@ -8,7 +8,7 @@ import TextField from '@mui/material/TextField';
 
 
 function Expense({user,name,amount,categories,Expid,date}) {
-
+  
   // onclick to submit delete request
   const handleClick = (e) => {
     e.preventDefault();
@@ -41,7 +41,7 @@ function Expense({user,name,amount,categories,Expid,date}) {
 
   return  (
       <div className='indvExpense'>
-        <span>Purpose: {name}</span><br></br>
+        <span>{name}</span><br></br>
         <span>Amount: ${amount}</span><br></br>
         <span>Categories: {categories}</span><br></br>
         <span>Date: {newDate}</span><br></br>

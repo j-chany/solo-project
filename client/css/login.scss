@@ -76,9 +76,11 @@ html,body
   
   background-position: center center; 
 }
-
+.mainContainer div {
+  margin-left: 15px; 
+}
 .expenseHeader {
-  text-shadow: 3px 2px #dec6dd;
+  // text-shadow: 3px 6px #060606;
   font-family: 'Poppins', sans-serif;
   font-weight: bolder;
   font-size: 30px;
@@ -107,13 +109,15 @@ html,body
 }
 
 .NewExpenseContainer {
+  text-align: center;
   margin-left: 10px;
-  background-color: rgb(178,216,241,0.6);
   width:18%;
   height:50vh;
    line-height: 1.5em;
   border: 1mm solid rgba(255, 255, 255, 0.6);
   border-radius: 20px;
+  background-color: white;
+  box-shadow: 5px 3px grey;
 }
 
 .NewExpenseContainer form  {
@@ -124,13 +128,15 @@ flex-direction: column;
 color: rgb(4, 1, 13)
 }
 .NewExpenseContainer h4  {
-  text-shadow: 3px 2px #dec6dd;
-  color: rgb(4, 1, 13)
+  // text-shadow: 1px 3.5px #060606;
+  color: rgb(24,118,209)
   }
   
 .indvExpense {
   display: flex;
-  border: 1mm solid rgba(255, 255, 255, 0.6);
+  // text-shadow: 1px 1px #ff8d8d;
+
+  
   margin-left: 10px;
 
 }
@@ -138,7 +144,7 @@ color: rgb(4, 1, 13)
 .indvExpense span {
   font-family: 'Poppins', sans-serif;
   font-weight: bolder;
-  font-size: 25px;
+  font-size: 22px;
 }
 
 .indvExpense button {
@@ -151,4 +157,29 @@ color: rgb(4, 1, 13)
 .indvExpense button:hover {
   border : 1mm solid rgba(255, 2, 2, 0.6);
   border-radius: 20px;
+}
+
+.budgetContainer {
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  left: 75%;
+  border: none;
+  width:20%;
+  height:25vh;
+  padding: 15px;
+  border: 1mm solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 5px 3px grey;
+  // text-align: center;
+}
+
+
+.budgetContainer span {
+  font-size: 20px;
+  color: rgba(0, 0, 0);
 }

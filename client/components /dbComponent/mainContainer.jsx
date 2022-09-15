@@ -20,7 +20,7 @@ function MainContainer ({user, name}) {
       <div className='expenseContent'> 
       <NewExpenseCreator user={user} />
       <ExpenseLog user={user} setDoneGrabbing={setDoneGrabbing} allData={allData} setAllData={setAllData} />
-      <Budget allData={allData} doneGrabbing={doneGrabbing}/>
+      <Budget allData={allData} user={user} doneGrabbing={doneGrabbing}/>
       </div>
     </div>
   )
