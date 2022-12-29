@@ -23,7 +23,7 @@ function Login ({setUser, setName}) {
     const body = { username: username, password: password }
 
     // submit post request to sign in
-    fetch('http://localhost:3000/login',{
+    fetch('/api/login',{
 
       method: 'POST',
       headers: {

@@ -37,7 +37,7 @@ function NewExpenseCreator({user, name}) {
     console.log(date)
 
     // fetch post request
-    fetch('http://localhost:3000/dashboard/expense',{
+    fetch('/dashboard/expense',{
 
       method: 'POST',
       headers: {

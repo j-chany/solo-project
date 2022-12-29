@@ -18,7 +18,7 @@ function Expense({user,name,amount,categories,Expid,date}) {
     // backend is looking for 
     // submit delete request 
     if (confirm)
-    fetch('http://localhost:3000/dashboard/expense',{
+    fetch('/api/dashboard/expense',{
 
       method: 'DELETE',
       headers: {

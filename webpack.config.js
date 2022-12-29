@@ -7,16 +7,18 @@ module.exports = {
   entry: './client/index.js',
 
   output: {
-    path: path.join(__dirname, '/client'),
+    path: path.join(__dirname, '/dist'),
+    publicPath: '/',
     filename: 'bundle.js',
   },
   // headers: { 'Access-Control-Allow-Origin': '*' },
   devServer: {
     proxy: {
       '/': {
-        target: 'http://localhost:3000/',
+        target: 'http://localhost:4000/',
       },
     },
+    historyApiFallback: true,
   },
   plugins: [
     new HTMLWebpackPlugin({

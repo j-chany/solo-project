@@ -26,7 +26,7 @@ userController.verifyUser = (req, res, next) => {
   })
     .then((data) => {
       if (data) {
-        console.log(data);
+        console.log('data', data);
         res.locals.user = data;
         return next();
       } else return next('ERROR: username or password incorrect');

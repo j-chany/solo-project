@@ -23,7 +23,7 @@ function SignUp({setUser,setName, name}) {
     const body = { username: username, password: password, name: name }
 
     //   submit post request to sign up
-      fetch('http://localhost:3000/signup',{
+      fetch('/signup',{
   
         method: 'POST',
         headers: {

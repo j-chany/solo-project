@@ -6,14 +6,14 @@ const mongoose = require('mongoose');
 const signupRouter = require('./routes/signup');
 const loginRouter = require('./routes/login');
 const dashboardRouter = require('./routes/dashboard');
-const budgetRouter = require('./routes/budget')
+const budgetRouter = require('./routes/budget');
 const app = express();
 
-// define port 
-const PORT = 3000;
+// define port
+const PORT = 4000;
 
-const cors = require('cors')
-app.use(cors())
+const cors = require('cors');
+app.use(cors());
 /**
  * handle parsing request body
  */
@@ -25,17 +25,15 @@ app.use('/', express.static(path.join(__dirname, '../client')));
 
 // redirect to log in page
 app.get('/', (req, res) => {
-  res.redirect('/login');
+  res.redirect('/api/login');
 });
 
-
-
-// login page 
-app.get('/login',(req, res) => {
-res.sendFile(path.join(__dirname, '../client/html/index.html'));
+// login page
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/html/index.html'));
 });
 // rest of the request of login will be handled with router
-app.use('/login', loginRouter);
+app.use('/api/login', loginRouter);
 
 // sign up page
 // app.get('/signup',(req, res) => {
@@ -44,24 +42,16 @@ app.use('/login', loginRouter);
 // rest of the request of signing up will be handled with router
 app.use('/signup', signupRouter);
 
-// app.get('/dashboard',(req, res) => {
-//   res.sendFile(path.join(__dirname, '../client/html/index.html'));
 
-// //   res.sendFile(path.resolve(__dirname, '../client/html/dashboard.html'));
-// });
 // rest of the request of signing up will be handled with router
-app.use('/dashboard', dashboardRouter);
+app.use('/api/dashboard', dashboardRouter);
 
 app.use('/budget', budgetRouter);
-
-
-
-
-
 
 // catch all unknown routes
 app.use('*', (req, res) => {
   res.status(404).json('CANNOT FIND PAGE');
+  // res.redirect('/')
 });
 
 // global Error handler

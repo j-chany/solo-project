@@ -12,7 +12,7 @@ function Budget ({allData, doneGrabbing, user, setBudget, budget}) {
 // useeffect to grab current budget, if doesnt exisit then use the original 0
   useEffect(() => {
     
-    fetch(`http://localhost:3000/budget/?user=${user}`)
+    fetch(`/budget/?user=${user}`)
       .then(response => response.json())
       .then((data) => setBudget(data))
       .catch((e) => console.log('Error is', e))

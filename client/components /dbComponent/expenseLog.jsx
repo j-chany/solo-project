@@ -16,7 +16,7 @@ function ExpenseLog({user, allData, setAllData, setDoneGrabbing, budget, doneGra
   useEffect(() =>{
     const userData = []; 
     // submit a get request and recive all user data
-    fetch (`http://localhost:3000/dashboard/expense/?id=${user}`)
+    fetch (`/api/dashboard/expense/?id=${user}`)
       .then ((response) => response.json())
       .then ((data) => {
         
@@ -44,7 +44,7 @@ function ExpenseLog({user, allData, setAllData, setDoneGrabbing, budget, doneGra
     const body = {user: user}
     const deleteAll = window.confirm(`Delete All Expense?`)
     if (deleteAll) {
-      fetch('http://localhost:3000/dashboard/expense/clearall',{
+      fetch('/api/dashboard/expense/clearall',{
 
       method: 'DELETE',
       headers: {
